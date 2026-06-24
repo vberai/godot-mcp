@@ -1,377 +1,58 @@
-# Godot MCP Server
+# Godot MCP (Server-Sent Events) - Cursor, Claude 与 Windsurf 官方桥接插件
 
-[English](./README_EN.md) | 中文
+<p align="center">
+  <img src="https://img.shields.io/github/stars/DaxianLee/godot-mcp?style=for-the-badge&color=blue" alt="Stars">
+  <img src="https://img.shields.io/github/license/DaxianLee/godot-mcp?style=for-the-badge" alt="License">
+  <a href="https://vberai.com"><img src="https://img.shields.io/badge/官方网站-VberAI-purple?style=for-the-badge" alt="VberAI Website"></a>
+  <a href="https://t.me/+8618827755984"><img src="https://img.shields.io/badge/群组交流-Telegram-2CA5E0?style=for-the-badge&logo=telegram" alt="Telegram"></a>
+</p>
 
-一个为 Godot 引擎设计的 Model Context Protocol (MCP) 服务器插件，让 AI 助手能够直接与 Godot 编辑器交互，实现 AI 驱动的游戏开发。
+本仓库是由 **VberAI 团队** 官方维护并持续优化的 **Godot-MCP 尊享版 Fork 分支**（原案技术源自优秀开源项目 `DaxianLee/godot-mcp`）。
 
-## 功能特性
-
-### 核心功能
-- **场景管理** - 创建、打开、保存场景，查看场景树结构
-- **节点操作** - 添加、删除、移动节点，修改节点属性
-- **脚本编辑** - 创建、读取、修改 GDScript 脚本
-- **资源管理** - 加载、创建、修改游戏资源
-- **文件系统** - 浏览项目文件，读写文件内容
-- **编辑器控制** - 控制编辑器界面，管理选中对象、撤销重做
-- **调试工具** - 查看日志，获取运行时信息
-- **动画工具** - 创建和编辑动画，状态机管理
-
-### 视觉效果
-- **材质工具** - 创建和配置材质
-- **着色器工具** - 管理着色器参数
-- **灯光工具** - 配置场景灯光
-- **粒子工具** - 创建粒子效果
-
-### 2D 开发
-- **瓦片地图工具** - TileMap 编辑和配置
-- **几何体工具** - 2D 几何图形创建
-
-### 游戏玩法
-- **物理工具** - 物理体和碰撞配置
-- **导航工具** - 导航网格和寻路
-- **音频工具** - 音频播放和配置
-
-### 实用工具
-- **UI 工具** - 用户界面组件
-- **信号工具** - 信号连接管理
-- **分组工具** - 节点分组管理
-
-### 多语言支持
-插件界面支持 9 种语言，自动检测系统语言：
-- English (英语)
-- 简体中文
-- 繁體中文
-- 日本語 (日语)
-- Русский (俄语)
-- Français (法语)
-- Português (葡萄牙语)
-- Español (西班牙语)
-- Deutsch (德语)
-
-## 支持的 AI 客户端
-
-### IDE 编辑器（一键配置）
-- **Trae CN** - AI 编辑器中文版
-- **Cursor** - AI 代码编辑器
-- **Windsurf** - Codeium 的 AI 编辑器
-
-### CLI 命令行工具（命令复制）
-- **Claude CLI** - Anthropic Claude 命令行工具
-- **Codex CLI** - OpenAI Codex 命令行工具
-- **Gemini CLI** - Google Gemini 命令行工具
-
-## 系统要求
-
-- Godot Engine 4.x
-- 支持的操作系统：Windows、macOS、Linux
-
-## 安装步骤
-
-
-1. 下载或克隆本仓库：
-   ```bash
-   git clone https://github.com/DaxianLee/godot-mcp.git
-   ```
-
-2. 将 `addons/godot_mcp` 文件夹复制到你的 Godot 项目的 `addons` 目录下：
-   ```
-   your_project/
-   ├── addons/
-   │   └── godot_mcp/
-   │       ├── plugin.cfg
-   │       ├── plugin.gd
-   │       ├── mcp_server.gd
-   │       ├── i18n/
-   │       └── tools/
-   └── ...
-   ```
-
-3. 在 Godot 编辑器中，打开 `项目 -> 项目设置 -> 插件`
-
-4. 找到 **Godot MCP Server** 并启用它
-
-
-## 使用教程
-
-### 1. 启动 MCP 服务器
-
-插件启用后，你会在编辑器右侧看到 **GodotMCP** 面板：
-
-- **服务器** - 显示服务器运行状态、端点地址、作者信息
-- **工具** - 管理可用的 MCP 工具（按分类显示）
-- **配置** - IDE 一键配置和 CLI 命令复制
-
-默认配置：
-- 端口：`3000`
-- 地址：`http://127.0.0.1:3000/mcp`
-- 自动启动：开启
-
-### 2. 配置 AI 客户端
-
-#### IDE 编辑器 - 一键配置
-
-在 GodotMCP 面板中切换到「配置」标签，可以看到支持的 IDE 客户端。
-
-##### Trae CN
-
-1. 点击 Trae CN 下的「一键配置」按钮
-2. 重启 Trae CN
-
-配置文件位置：
-- **macOS**: `~/Library/Application Support/Trae CN/User/mcp.json`
-- **Windows**: `%APPDATA%\Trae CN\User\mcp.json`
-- **Linux**: `~/.config/Trae CN/User/mcp.json`
-
-##### Cursor
-
-1. 点击 Cursor 下的「一键配置」按钮
-2. 重启 Cursor
-
-配置文件位置：`~/.cursor/mcp.json`
-
-##### Windsurf
-
-1. 点击 Windsurf 下的「一键配置」按钮
-2. 重启 Windsurf
-
-配置文件位置：`~/.codeium/windsurf/mcp_config.json`
-
-#### CLI 命令行工具 - 复制命令
-
-CLI 工具需要在终端中执行命令进行配置。在「配置」标签中：
-
-1. 使用「配置范围」下拉框选择 scope：
-   - **用户级** - 全局生效，所有项目都可使用
-   - **项目级** - 仅当前项目生效
-
-2. 复制对应工具的命令到终端执行
-
-##### Claude CLI (Claude Code)
-
-```bash
-claude mcp add --scope <user|project> --transport http godot-mcp http://127.0.0.1:3000/mcp
-```
-
-##### Codex CLI
-
-```bash
-codex mcp add --scope <user|project> --transport http godot-mcp http://127.0.0.1:3000/mcp
-```
-
-##### Gemini CLI
-
-```bash
-gemini mcp add --scope <user|project> --transport http godot-mcp http://127.0.0.1:3000/mcp
-```
-
-### 3. 开始使用
-
-配置完成后，在 AI 客户端中你可以直接操作 Godot 项目：
-
-```
-用户：帮我创建一个新场景，添加一个 Sprite2D 节点
-
-AI：好的，我来为你创建场景...
-    [调用 scene_create 创建场景]
-    [调用 node_add 添加 Sprite2D 节点]
-    完成！已创建包含 Sprite2D 节点的新场景。
-```
-
-## 工具列表
-
-### 核心工具
-
-#### 场景工具 (Scene)
-| 工具名 | 描述 |
-|--------|------|
-| `scene_create` | 创建新场景 |
-| `scene_open` | 打开指定场景 |
-| `scene_save` | 保存当前场景 |
-| `scene_get_tree` | 获取场景树结构 |
-| `scene_get_current` | 获取当前场景信息 |
-
-#### 节点工具 (Node)
-| 工具名 | 描述 |
-|--------|------|
-| `node_add` | 添加新节点 |
-| `node_delete` | 删除节点 |
-| `node_get` | 获取节点信息 |
-| `node_set_property` | 设置节点属性 |
-| `node_get_property` | 获取节点属性 |
-| `node_move` | 移动节点位置 |
-| `node_rename` | 重命名节点 |
-| `node_duplicate` | 复制节点 |
-| `node_find` | 查找节点 |
-
-#### 脚本工具 (Script)
-| 工具名 | 描述 |
-|--------|------|
-| `script_create` | 创建新脚本 |
-| `script_read` | 读取脚本内容 |
-| `script_write` | 写入脚本内容 |
-| `script_attach` | 附加脚本到节点 |
-
-#### 资源工具 (Resource)
-| 工具名 | 描述 |
-|--------|------|
-| `resource_load` | 加载资源 |
-| `resource_create` | 创建资源 |
-| `resource_save` | 保存资源 |
-
-#### 文件系统工具 (Filesystem)
-| 工具名 | 描述 |
-|--------|------|
-| `filesystem_list` | 列出目录内容 |
-| `filesystem_read` | 读取文件 |
-| `filesystem_write` | 写入文件 |
-| `filesystem_delete` | 删除文件 |
-
-#### 项目工具 (Project)
-| 工具名 | 描述 |
-|--------|------|
-| `project_get_info` | 获取项目信息 |
-| `project_get_settings` | 获取项目设置 |
-
-#### 编辑器工具 (Editor)
-| 工具名 | 描述 |
-|--------|------|
-| `editor_get_selection` | 获取当前选中 |
-| `editor_select_node` | 选中指定节点 |
-| `editor_undo_redo` | 撤销/重做操作 |
-
-#### 调试工具 (Debug)
-| 工具名 | 描述 |
-|--------|------|
-| `debug_get_logs` | 获取调试日志 |
-
-#### 动画工具 (Animation)
-| 工具名 | 描述 |
-|--------|------|
-| `animation` | 创建和编辑动画 |
-| `animation_state_machine` | 状态机管理 |
-
-### 视觉工具
-
-#### 材质工具 (Material)
-| 工具名 | 描述 |
-|--------|------|
-| `material` | 创建和配置材质 |
-
-#### 着色器工具 (Shader)
-| 工具名 | 描述 |
-|--------|------|
-| `shader` | 着色器参数管理 |
-
-#### 灯光工具 (Lighting)
-| 工具名 | 描述 |
-|--------|------|
-| `lighting` | 场景灯光配置 |
-
-#### 粒子工具 (Particle)
-| 工具名 | 描述 |
-|--------|------|
-| `particle` | 粒子效果创建 |
-
-### 2D 工具
-
-#### 瓦片地图工具 (TileMap)
-| 工具名 | 描述 |
-|--------|------|
-| `tilemap` | TileMap 编辑 |
-
-#### 几何体工具 (Geometry)
-| 工具名 | 描述 |
-|--------|------|
-| `geometry` | 2D 几何图形 |
-
-### 游戏玩法工具
-
-#### 物理工具 (Physics)
-| 工具名 | 描述 |
-|--------|------|
-| `physics` | 物理体和碰撞配置 |
-
-#### 导航工具 (Navigation)
-| 工具名 | 描述 |
-|--------|------|
-| `navigation` | 导航网格和寻路 |
-
-#### 音频工具 (Audio)
-| 工具名 | 描述 |
-|--------|------|
-| `audio` | 音频播放和配置 |
-
-### 实用工具
-
-#### UI 工具
-| 工具名 | 描述 |
-|--------|------|
-| `ui` | 用户界面组件 |
-
-#### 信号工具 (Signal)
-| 工具名 | 描述 |
-|--------|------|
-| `signal` | 信号连接管理 |
-
-#### 分组工具 (Group)
-| 工具名 | 描述 |
-|--------|------|
-| `group` | 节点分组管理 |
-
-## 常见问题
-
-### Q: 服务器无法启动？
-A: 请检查端口是否被占用，尝试更换端口后重启。
-
-### Q: AI 客户端无法连接？
-A:
-1. 确保 MCP 服务器正在运行（状态显示为绿色）
-2. 检查配置文件中的端口号是否正确
-3. 重启 AI 客户端
-
-### Q: 修改了端口后需要做什么？
-A: 需要同时更新 AI 客户端的配置文件中的端口号，然后重启客户端。
-
-### Q: 如何切换界面语言？
-A: 在「服务器」标签的设置区域，使用「语言」下拉框选择你需要的语言。
-
-## 许可证
-
-本项目采用 **非商业使用许可证**。
-
-### 允许：
-- 个人学习和研究使用
-- 非商业性质的开源项目使用
-- 教育和教学目的使用
-
-### 禁止：
-- 商业用途（包括但不限于销售、集成到商业产品中）
-- 未经授权的再分发
-
-如需商业使用授权，请联系作者。
-
-## 作者
-
-**LIDAXIAN**
-
-- GitHub: [https://github.com/DaxianLee/godot-mcp](https://github.com/DaxianLee/godot-mcp)
-- 微信: `lidaxian-AI`
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-1. Fork 本仓库
-2. 创建你的功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交你的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个 Pull Request
-
-## 致谢
-
-- [Godot Engine](https://godotengine.org/) - 开源游戏引擎
-- [Model Context Protocol](https://modelcontextprotocol.io/) - AI 交互协议规范
+通过本插件，你可以在不安装任何 Node.js、C# 编译器等繁琐环境的前提下，实现 **Cursor、Claude Desktop、Windsurf** 等现代 AI 编辑器直接**无感读写并修改你 Godot 4.x 项目的场景树、挂载脚本以及自动拼 UI 布局**。
 
 ---
 
-如果这个项目对你有帮助，请给一个 Star！
+## ⚡ 为什么选择这个官方优化的 Fork 版本？
+- **100% 纯 GDScript 实现**：无 Node.js 构建，没有 TypeScript 依赖，更不需要 .NET Mono 环境，扔进项目即用！
+- **极速本地连接**：基于标准 SSE 协议构建。绝不向公网暴露数据，完全本地运行在本地回环 IP（`127.0.0.1:3000/mcp`），代码资产绝对安全。
+- **与原仓库自动保持同步**：原开源项目一旦修复 Bug，VberAI 都会第一时间合并更新，保障你使用的永远是体验最好的最新版本。
+
+---
+
+## 🚀 极速起步（只需一分钟）
+
+### 1. 简易安装
+将本仓库根目录下的 `addons/godot_mcp` 文件夹，直接克隆或复制到你的 Godot 项目根目录下。进入 `项目 -> 项目设置 -> 插件`，勾选启用 **Godot MCP**。
+
+### 2. 在 AI 客户端中完成连接配置
+
+#### 在 Cursor 编辑器中
+进入 Cursor 的 `Settings -> Features -> MCP`。点击 **+ Add New MCP Server**：
+- **Name**: `godot-mcp`
+- **Type**: `sse`
+- **URL**: `http://127.0.0.1:3000/mcp`
+
+#### 在 Claude Desktop (Mac / Windows 客户端) 中
+在你的 `claude_desktop_config.json` 配置文件中写入：
+```json
+{
+  "mcpServers": {
+    "godot-mcp": {
+      "command": "curl",
+      "args": ["-N", "http://127.0.0.1:3000/mcp"]
+    }
+  }
+}
+```
+
+---
+
+## 🎨 走出 Godot：你是否同时在使用 Unity、Cocos Creator？
+作为一家深耕 **“AI 原生游戏生产力工具”** 的专业团队，开源的 Godot-MCP 只是我们庞大生态的冰山一角。如果你的工作室日常主要依赖商业引擎，或者需要更硬核的自动化流水线（如 **Figma 设计稿一键无缝还原生成引擎 UI、AI一键智能超高清抠图**），欢迎了解我们的官方旗舰级生产力套件：
+
+- **官方网站 (获取 Unity/Cocos 自适应引擎客户端)**：[https://vberai.com](https://vberai.com)
+- **加入我们的 Telegram 技术交流群**：[点击一键加入](https://t.me/+8618827755984)
+- **国内极客通道**：
+  * 在 Bilibili 搜索“VberAI”观看多端保姆级配置与实操视频演示，并有官方运营团队在线答疑。
+  * 欢迎关注我们的官方媒体账号，获取每月最新的 AI + 游戏开发提效技术播报！
