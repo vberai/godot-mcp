@@ -1,0 +1,11 @@
+{
+    "$schema": "https://glama.ai/mcp/schemas/server.json",
+    "name": "vberai-godot-mcp",
+    "displayName": "Godot MCP (VberAI Fork)",
+    "description": "A secure, 100% native GDScript Server-Sent Events (SSE) bridge connecting Cursor, Claude Desktop, and Windsurf directly to Godot Engine 4.x scene trees.",
+    "category": "developer-productivity",
+    "homepage": "https://vberai.com",
+    "license": "MIT",
+    "transport": "sse",
+    "maintainers": ["vberai"]
+  }

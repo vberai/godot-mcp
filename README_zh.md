@@ -22,20 +22,56 @@
 
 ---
 
+## 🧰 MCP 插件支持的工具
+
+<p align="center">
+  <img src="assets/images/zh/tools.png" alt="Godot MCP 支持的工具列表" width="800"/>
+</p>
+
+---
+
+## 🎬 演示效果
+
+<p align="center">
+  <img src="assets/video/video.gif" alt="Godot MCP 演示效果" width="800"/>
+</p>
+
+---
+
 ## 🚀 极速起步（只需一分钟）
 
 ### 1. 简易安装
 将本仓库根目录下的 `addons/godot_mcp` 文件夹，直接克隆或复制到你的 Godot 项目根目录下。进入 `项目 -> 项目设置 -> 插件`，勾选启用 **Godot MCP**。
 
-### 2. 在 AI 客户端中完成连接配置
+<p align="center">
+  <img src="assets/images/zh/enable.png" alt="在项目设置中启用 Godot MCP 插件" width="800"/>
+</p>
 
-#### 在 Cursor 编辑器中
+### 2. 启动 MCP 服务
+1. 在编辑器停靠栏打开 **GodotMCP** 面板。
+2. 点击 **Start Server**，确认服务在 `3000` 端口运行。
+
+<p align="center">
+  <img src="assets/images/zh/start.png" alt="在 Godot 编辑器中启动 MCP 服务" width="800"/>
+</p>
+
+### 3. 在 AI 客户端中完成连接配置
+
+#### 方式 A：Godot 编辑器内一键配置（推荐）
+1. 打开 **GodotMCP** 面板的 **Config** 标签页。
+2. 选择目标 IDE（Cursor / Trae 等），点击 **One-Click Config**。
+
+<p align="center">
+  <img src="assets/images/zh/IDE-config.png" alt="IDE 一键配置" width="800"/>
+</p>
+
+#### 方式 B：在 Cursor 编辑器中手动配置
 进入 Cursor 的 `Settings -> Features -> MCP`。点击 **+ Add New MCP Server**：
 - **Name**: `godot-mcp`
 - **Type**: `sse`
 - **URL**: `http://127.0.0.1:3000/mcp`
 
-#### 在 Claude Desktop (Mac / Windows 客户端) 中
+#### 方式 C：在 Claude Desktop (Mac / Windows 客户端) 中手动配置
 在你的 `claude_desktop_config.json` 配置文件中写入：
 ```json
 {
@@ -51,10 +87,10 @@
 ---
 
 ## 🎨 走出 Godot：你是否同时在使用 Unity、Cocos Creator？
-作为一家深耕 **“AI 原生游戏生产力工具”** 的专业团队，开源的 Godot-MCP 只是我们庞大生态的冰山一角。如果你的工作室日常主要依赖商业引擎，或者需要更硬核的自动化流水线（如 **Figma 设计稿一键无缝还原生成引擎 UI、AI一键智能超高清抠图**），欢迎了解我们的官方旗舰级生产力套件：
+作为一家深耕 **"AI 原生游戏生产力工具"** 的专业团队，开源的 Godot-MCP 只是我们庞大生态的冰山一角。如果你的工作室日常主要依赖商业引擎，或者需要更硬核的自动化流水线（如 **Figma 设计稿一键无缝还原生成引擎 UI、AI一键智能超高清抠图**），欢迎了解我们的官方旗舰级生产力套件：
 
 - **官方网站 (获取 Unity/Cocos 自适应引擎客户端)**：[https://vberai.com](https://vberai.com)
 - **加入我们的 Telegram 技术交流群**：[点击一键加入](https://t.me/+8618827755984)
 - **国内极客通道**：
-  * 在 Bilibili 搜索“VberAI”观看多端保姆级配置与实操视频演示，并有官方运营团队在线答疑。
+  * 在 Bilibili 搜索"VberAI"观看多端保姆级配置与实操视频演示，并有官方运营团队在线答疑。
   * 欢迎关注我们的官方媒体账号，获取每月最新的 AI + 游戏开发提效技术播报！
