@@ -603,7 +603,7 @@ func _send_http_response(client: StreamPeerTCP, data: Dictionary) -> void:
 	headers += "Content-Length: %d\r\n" % body_bytes.size()
 	headers += "Access-Control-Allow-Origin: *\r\n"
 	headers += "Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n"
-	headers += "Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With, Authorization\r\n"
+	headers += "Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With, Authorization, Mcp-Protocol-Version, Mcp-Session-Id\r\n"
 	headers += "Access-Control-Max-Age: 86400\r\n"
 	headers += "Connection: keep-alive\r\n"
 	headers += "\r\n"
